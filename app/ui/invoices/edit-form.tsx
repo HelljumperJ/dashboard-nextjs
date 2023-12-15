@@ -19,9 +19,11 @@ export default function EditInvoiceForm({
   customers: CustomerField[];
 }) {
   const updateInvoiceWithId = updateInvoice.bind(null, invoice.id);
+
   return (
     <form action={updateInvoiceWithId}>
-      <div className="rounded-md bg-gray-50 p-4 md:p-6">
+      <input type="hidden" name="id" value={invoice.id} />
+
         {/* Customer Name */}
         <div className="mb-4">
           <label htmlFor="customer" className="mb-2 block text-sm font-medium">
@@ -110,7 +112,6 @@ export default function EditInvoiceForm({
             </div>
           </div>
         </fieldset>
-      </div>
       <div className="mt-6 flex justify-end gap-4">
         <Link
           href="/dashboard/invoices"
